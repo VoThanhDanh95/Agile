@@ -7,4 +7,8 @@ class Product < ActiveRecord::Base
     with: %r{\.(gif|jpg|png)\Z}i,
     messages: 'not a image file type'
   }
+
+  def self.latest
+    Product.order(:updated_at).last
+  end
 end
